@@ -1,0 +1,3 @@
+Google.Apis
+Google.Apis.Auth
+Google.Apis.Core
