@@ -6,12 +6,19 @@ internal static class Endpoints
         {
             var res = await manager.ManageAsync(req);
             return Results.Ok(res);
-        });
+        }).RequireAuthorization();
 
         @this.MapPost("/auth/login", async (LoginReq req, IManager<LoginReq, LoginResp> manager) =>
         {
             var res = await manager.ManageAsync(req);
-            return Results.Ok(res);
+
+            // TODO: confirm this approach...
+            return Results.Redirect(res.Uri);
+        });
+
+        @this.MapGet("/ext/auth", async (HttpContext context) =>
+        {
+            throw new NotImplementedException();
         });
 
         @this.MapPost("/lst/upsert", async (UpsertLstReq req, IManager<UpsertLstReq, UpsertLstResp> manager) =>

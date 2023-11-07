@@ -20,6 +20,15 @@ internal record LoginReq : Req
 
 internal record LoginResp : Resp
 {
+    public string Uri { get; init; } = string.Empty;
+}
+
+internal record AuthReq : Req
+{
+}
+
+internal record AuthResp : Resp
+{
 }
 
 internal record RegisterReq : Req
