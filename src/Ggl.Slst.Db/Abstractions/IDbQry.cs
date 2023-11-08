@@ -3,5 +3,5 @@
 public interface IDbQry
 {
     long Id { get; init; }
-    long UserId { get; init; }
+    long UsrId { get; init; }
 }

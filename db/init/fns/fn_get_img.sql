@@ -1,5 +1,5 @@
-drop function if exists fn_get_usr;
-CREATE FUNCTION fn_get_usr
+drop function if exists fn_get_img;
+CREATE FUNCTION fn_get_img
 (
     p_id bigint,
     p_offset_id bigint,
@@ -11,13 +11,9 @@ RETURNS TABLE
 (
     Id bigint,
     CreationTimestampUtc timestamp,
-    Guid uuid,
     Inactive boolean,
-    Usrname varchar(50),
-    Name varchar(50),
-    Surname varchar(50),
-    Email varchar(50),
-    Password varchar(50),
+    Url varchar(50),
+    ThumbnailUrl varchar(50)
 )
 AS $$
 BEGIN
@@ -26,13 +22,9 @@ BEGIN
     SELECT
         u.id AS Id,
         u.creation_timestamp_utc AS CreationTimestampUtc,
-        u.guid AS Guid,
         u.inactive AS Inactive,
-        u.usrname AS Usrname,
-        u.name AS Name,
-        u.surname AS Surname,
-        u.email AS Email,
-        u.password AS Password
+        u.url AS Url,
+        u.thumbnail_url AS ThumbnailUrl
     FROM tb_usr AS u
     WHERE 
         (p_id <= 0 or u.id = p_id) and
@@ -44,7 +36,7 @@ BEGIN
         (  
           (p_query_string = '' or p_query_string IS NULL) or  
           (  
-              LOWER(u.usrname) LIKE CONCAT('%', p_query_string, '%')
+              LOWER(u.url) LIKE CONCAT('%', p_query_string, '%')
           )  
         )
         ORDER BY u.id DESC  

@@ -3,6 +3,6 @@
 public interface IDbCmd
 {
     long Id { get; init; }
-    long UserId { get; init; }
+    long UsrId { get; init; }
     IDbCmdResult Result { get; set; }
 }

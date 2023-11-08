@@ -2,7 +2,7 @@ drop function if exists fn_get_lst;
 CREATE FUNCTION fn_get_lst
 (
     p_id bigint,
-    p_user_id bigint,
+    p_usr_id bigint,
     p_offset_id bigint,
     p_offset_boundry int,
     p_limit int,
@@ -11,8 +11,7 @@ CREATE FUNCTION fn_get_lst
 RETURNS TABLE
 (
     Id bigint,
-    Guid uuid,
-    UserId bigint,
+    usrId bigint,
     CreationTimestampUtc timestamp,
     Name varchar(500), 
     ProductIds bigint[]
@@ -23,8 +22,7 @@ BEGIN
     RETURN QUERY 
     SELECT
         t.id as Id,
-        t.guid as Guid,
-        t.user_id as UserId,
+        t.usr_id as UsrId,
         t.creation_timestamp_utc as CreationTimestampUtc,
         t.name as Name,
         t.product_ids as ProductIds

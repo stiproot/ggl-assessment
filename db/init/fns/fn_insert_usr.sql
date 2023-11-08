@@ -1,13 +1,10 @@
 drop function if exists fn_insert_usr;
 create or replace function fn_insert_usr(
-    p_guid uuid,
     p_name varchar(50),
     p_surname varchar(50),
     p_usrname varchar(50),
     p_email varchar(50),
-    p_password varchar(25),
-    p_image_id bigint, 
-    p_timezone_id smallint 
+    p_password varchar(25)
 )
 returns bigint
 language plpgsql
@@ -17,9 +14,8 @@ begin
 
     insert into tb_usr
     (
-        guid,
-        name, 
         usr_id,
+        name, 
         surname,
         usrname,
         email,
@@ -28,14 +24,13 @@ begin
     ) 
     values 
     (
-        p_guid,
-        p_name, 
         cast(0 as bigint),
+        p_name, 
         p_surname, 
         p_usrname, 
         p_email, 
         p_password, 
-        TRUE
+        FALSE
     ) 
     returning id into v_id;
 

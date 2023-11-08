@@ -1,6 +1,7 @@
 drop function if exists fn_delete_img;
 create or replace function fn_delete_img(
-    p_id bigint
+    p_id bigint,
+    p_usr_id bigint
 )
 returns bigint
 language plpgsql
@@ -9,7 +10,7 @@ declare v_id bigint;
 begin
 
     delete from tb_img t
-    where t.id = p_id
+    where t.id = p_id AND t.usr_id = p_usr_id
     returning t.id into v_id;
 
     return v_id;

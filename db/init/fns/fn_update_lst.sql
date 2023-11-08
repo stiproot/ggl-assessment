@@ -12,16 +12,8 @@ begin
 
     update tb_lst
     set 
-        name = 
-            case 
-                when p_name is null or p_name = '' then name
-                else p_name
-            end, 
-        product_ids = 
-            case 
-                when p_product_ids is null then product_ids
-                else p_product_ids
-            end
+        name = p_name,
+        product_ids = p_product_ids
     where id = p_id
     returning id into v_id;
 

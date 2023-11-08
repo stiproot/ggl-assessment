@@ -1,0 +1,1 @@
+insert into tb_usr(usr_id, name, surname, usrname, email, password) values (0, 'slst', 'slst', 'slst-superusr', 'slst@gmail.com', 'slst');

@@ -9,7 +9,7 @@ CREATE FUNCTION fn_get_product
 RETURNS TABLE
 (
     id bigint,
-    description varchar(25), 
+    description varchar(250), 
     code varchar(25) 
 )
 AS $$
