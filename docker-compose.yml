@@ -3,7 +3,7 @@ services:
   slst-db:
     networks:
       - slst
-    build: ./db
+    build: ./src/db
     ports:
       - 5432:5432
     environment:
@@ -14,7 +14,7 @@ services:
   slst-api:
     networks:
       - slst
-    build: ./src/Ggl.Slst.Api
+    build: ./src/apis/Ggl.Slst.Api
     ports:
       - 5079:5079
 
