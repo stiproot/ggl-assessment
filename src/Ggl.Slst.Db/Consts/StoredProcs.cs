@@ -2,7 +2,19 @@ namespace Ggl.Slst.Db.Consts;
 
 internal static class StoredProcs
 {
-    public const string UpsertSLst = "pr_upsert_slst";
-    public const string DeleteSLst = "pr_delete_slst";
-    public const string GetSLst = "pr_get_slst";
+    public const string UpsertLst = "fn_upsert_lst";
+    public const string GetLst = "fn_get_lst";
+    public const string DeleteLst = "fn_delete_lst";
+
+    public const string UpsertUsr = "fn_upsert_usr";
+    public const string GetUsr = "fn_get_usr";
+    public const string DeleteUsr = "fn_delete_usr";
+
+    public const string UpsertImg = "fn_upsert_img";
+    public const string GetImg = "fn_get_img";
+    public const string DeleteImg = "fn_delete_img";
+
+    public const string UpsertProduct = "fn_upsert_product";
+    public const string GetProduct = "fn_get_product";
+    public const string DeleteProduct = "fn_delete_product";
 }

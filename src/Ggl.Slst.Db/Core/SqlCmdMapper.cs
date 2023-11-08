@@ -4,19 +4,23 @@ public class SqlCmdMapper : ISqlCmdMapper
 {
     protected readonly IDictionary<string, string> _CommandHash = new Dictionary<string, string>();
 
-    public SqlCmdMapper()
-    {
-        this.Load();
-    }
+    public SqlCmdMapper() => this.Load();
 
     protected virtual void Load()
     {
-        this._CommandHash.Add(typeof(UpsertSLstDbCmd).FullName!, StoredProcs.UpsertSLst);
-        this._CommandHash.Add(typeof(DeleteSLstDbCmd).FullName!, StoredProcs.DeleteSLst);
+        this._CommandHash.Add(typeof(UpsertLstDbCmd).FullName!, StoredProcs.UpsertLst);
+        this._CommandHash.Add(typeof(DeleteLstDbCmd).FullName!, StoredProcs.DeleteLst);
+        this._CommandHash.Add(typeof(UpsertImgDbCmd).FullName!, StoredProcs.UpsertImg);
+        this._CommandHash.Add(typeof(DeleteImgDbCmd).FullName!, StoredProcs.DeleteImg);
+        this._CommandHash.Add(typeof(UpsertUsrDbCmd).FullName!, StoredProcs.UpsertUsr);
+        this._CommandHash.Add(typeof(DeleteUsrDbCmd).FullName!, StoredProcs.DeleteUsr);
+        this._CommandHash.Add(typeof(UpsertProductDbCmd).FullName!, StoredProcs.UpsertProduct);
+        this._CommandHash.Add(typeof(DeleteProductDbCmd).FullName!, StoredProcs.DeleteProduct);
     }
 
     public ISqlInstruction Map(IDbCmd cmd)
     {
+        // TODO: this can be optimized! (cache the member info on startup)...
         Type commandTypeInfo = cmd.GetType();
         MemberInfo[] membersInfo = commandTypeInfo
             .GetMembers()

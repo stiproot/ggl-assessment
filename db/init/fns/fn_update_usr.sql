@@ -18,7 +18,7 @@ begin
       name = p_name,
       surname = p_surname, 
       usrname = p_usrname, 
-      password = p_password, 
+      pwd = p_password, 
       email = p_email
     where id = p_id
     returning id into v_id;

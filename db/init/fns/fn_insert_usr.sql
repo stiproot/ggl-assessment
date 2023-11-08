@@ -19,7 +19,7 @@ begin
         surname,
         usrname,
         email,
-        password,
+        pwd,
         inactive
     ) 
     values 

@@ -12,7 +12,7 @@ begin
 
     update tb_product
     set 
-      description = p_description,
+      desc = p_description,
       code = p_code
     where id = p_id
     returning id into v_id;

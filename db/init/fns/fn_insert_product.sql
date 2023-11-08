@@ -11,7 +11,7 @@ begin
 
     insert into tb_product
     (
-        description, 
+        desc, 
         code
     ) 
     values 

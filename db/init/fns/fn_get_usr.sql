@@ -30,7 +30,7 @@ BEGIN
         u.name AS Name,
         u.surname AS Surname,
         u.email AS Email,
-        u.password AS Password
+        u.pwd AS Password
     FROM tb_usr AS u
     WHERE 
         (p_id <= 0 or u.id = p_id) and

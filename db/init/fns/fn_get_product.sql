@@ -9,7 +9,7 @@ CREATE FUNCTION fn_get_product
 RETURNS TABLE
 (
     id bigint,
-    description varchar(250), 
+    desc varchar(250), 
     code varchar(25) 
 )
 AS $$
@@ -18,7 +18,7 @@ BEGIN
     RETURN QUERY 
     SELECT
         t.id AS Id,
-        t.description AS Description,
+        t.desc AS Desc,
         t.code AS Code
     FROM tb_product t
     WHERE  
@@ -31,7 +31,7 @@ BEGIN
         (  
             (p_query_string = '' OR p_query_string IS NULL) OR  
             (  
-                LOWER(t.description) LIKE CONCAT('%', p_query_string, '%') OR
+                LOWER(t.desc) LIKE CONCAT('%', p_query_string, '%') OR
                 LOWER(t.code) LIKE CONCAT('%', p_query_string, '%')
             )  
         )  

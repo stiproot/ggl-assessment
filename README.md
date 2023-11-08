@@ -22,7 +22,7 @@ erDiagram
         VARCHAR(50) name
         VARCHAR(50) surname
         VARCHAR(50) email
-        VARCHAR(25) password
+        VARCHAR(25) pwd
     }
 
     tb_lst ||--o{ tb_product : contains
@@ -41,7 +41,7 @@ erDiagram
         TIMESTAMP creation_timestamp_utc
         BIGINT usr_id
         BOOLEAN inactive
-        VARCHAR(50) description
+        VARCHAR(50) desc
     }
 
     tb_product_img_mapping ||--o{ tb_product : maps
@@ -60,7 +60,7 @@ erDiagram
         TIMESTAMP creation_timestamp_utc
         BIGINT usr_id
         BOOLEAN inactive
-        VARCHAR(250) description
+        VARCHAR(250) desc
         VARCHAR(25) code
     }
 
