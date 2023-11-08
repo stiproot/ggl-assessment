@@ -13,7 +13,7 @@ RETURNS TABLE
     Id bigint,
     usrId bigint,
     CreationTimestampUtc timestamp,
-    Name varchar(500), 
+    Name varchar(50), 
     ProductIds bigint[]
 )
 AS $$

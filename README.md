@@ -41,7 +41,7 @@ erDiagram
         TIMESTAMP creation_timestamp_utc
         BIGINT usr_id
         BOOLEAN inactive
-        VARCHAR(50) desc
+        VARCHAR(50) description
     }
 
     tb_product_img_mapping ||--o{ tb_product : maps
@@ -60,7 +60,7 @@ erDiagram
         TIMESTAMP creation_timestamp_utc
         BIGINT usr_id
         BOOLEAN inactive
-        VARCHAR(250) desc
+        VARCHAR(250) description
         VARCHAR(25) code
     }
 

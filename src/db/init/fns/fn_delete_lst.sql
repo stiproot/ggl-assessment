@@ -1,6 +1,7 @@
 drop function if exists fn_delete_lst;
 create or replace function fn_delete_lst(
-    p_id bigint
+    p_id bigint,
+    p_usr_id bigint
 )
 returns bigint
 language plpgsql

@@ -12,16 +12,37 @@ echo "Attempting slst database creation..."
 psql slst -U "$POSTGRES_USER" </db/init/extensions.sql
 psql slst -U "$POSTGRES_USER" </db/init/tbs.sql
 
-FN_SCRIPTS_DIR="/db/init/fns"
-all_fn_scripts=""
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_upsert_lst.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_lst.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_lst.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_upsert_usr.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_usr.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_usr.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_upsert_img.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_img.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_img.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_upsert_product.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_product.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_product.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_product_img_mapping.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_insert_product_img_mapping.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_product_img_mapping.sql
 
-for script_file in "$FN_SCRIPTS_DIR"/*.sh; do
-	if [ -f "$script_file" ]; then
-		script_contents=$(<"$script_file")
-		all_fn_scripts="${all_fn_scripts}${script_contents};"
-	fi
-done
+psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_lst_status.sql
+psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_products.sql
+psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_usr-system.sql
+psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_img.sql
 
-echo "$all_fn_scripts" | psql "$DATABASE_NAME" -U "$POSTGRES_USER"
+# FN_SCRIPTS_DIR="/db/init/fns"
+# all_fn_scripts=""
+
+# for script_file in "$FN_SCRIPTS_DIR"/*.sh; do
+# 	if [ -f "$script_file" ]; then
+# 		script_contents=$(<"$script_file")
+# 		all_fn_scripts="${all_fn_scripts}${script_contents};"
+# 	fi
+# done
+
+# echo "$all_fn_scripts" | psql "$DATABASE_NAME" -U "$POSTGRES_USER"
 
 echo "slst database creation finished..."

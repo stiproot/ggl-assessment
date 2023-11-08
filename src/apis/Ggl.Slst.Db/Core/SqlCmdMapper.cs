@@ -16,6 +16,8 @@ public class SqlCmdMapper : ISqlCmdMapper
         this._CommandHash.Add(typeof(DeleteUsrDbCmd).FullName!, StoredProcs.DeleteUsr);
         this._CommandHash.Add(typeof(UpsertProductDbCmd).FullName!, StoredProcs.UpsertProduct);
         this._CommandHash.Add(typeof(DeleteProductDbCmd).FullName!, StoredProcs.DeleteProduct);
+        this._CommandHash.Add(typeof(InsertProductImgMappingDbCmd).FullName!, StoredProcs.InsertProductImgMapping);
+        this._CommandHash.Add(typeof(DeleteProductImgMappingDbCmd).FullName!, StoredProcs.DeleteProductImgMapping);
     }
 
     public ISqlInstruction Map(IDbCmd cmd)

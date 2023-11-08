@@ -1,5 +1,7 @@
 drop function if exists fn_insert_product_img_mapping;
 create or replace function fn_insert_product_img_mapping(
+    p_id bigint,
+    p_usr_id bigint,
     p_product_id bigint, 
     p_img_id bigint
 )

@@ -1,6 +1,7 @@
 drop function if exists fn_delete_product;
 create or replace function fn_delete_product(
-    p_id bigint
+    p_id bigint,
+    p_usr_id bigint
 )
 returns bigint
 language plpgsql

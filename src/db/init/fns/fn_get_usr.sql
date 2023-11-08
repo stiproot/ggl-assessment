@@ -2,6 +2,7 @@ drop function if exists fn_get_usr;
 CREATE FUNCTION fn_get_usr
 (
     p_id bigint,
+    p_usr_id bigint,
     p_offset_id bigint,
     p_offset_boundry int,
     p_limit int,
@@ -16,7 +17,7 @@ RETURNS TABLE
     Name varchar(50),
     Surname varchar(50),
     Email varchar(50),
-    Password varchar(50),
+    Pwd varchar(50)
 )
 AS $$
 BEGIN
@@ -30,7 +31,7 @@ BEGIN
         u.name AS Name,
         u.surname AS Surname,
         u.email AS Email,
-        u.pwd AS Password
+        u.pwd AS Pwd
     FROM tb_usr AS u
     WHERE 
         (p_id <= 0 or u.id = p_id) and

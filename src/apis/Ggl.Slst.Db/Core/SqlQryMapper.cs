@@ -12,6 +12,7 @@ public class SqlQryMapper : ISqlQryMapper
         this._CommandHash.Add(typeof(GetImgDbQry).FullName!, StoredProcs.GetImg);
         this._CommandHash.Add(typeof(GetUsrDbQry).FullName!, StoredProcs.GetUsr);
         this._CommandHash.Add(typeof(GetProductDbQry).FullName!, StoredProcs.GetProduct);
+        this._CommandHash.Add(typeof(GetProductImgMappingDbQry).FullName!, StoredProcs.GetProductImgMapping);
     }
 
     public ISqlInstruction Map(IDbQry qry)

@@ -17,4 +17,8 @@ internal static class StoredProcs
     public const string UpsertProduct = "fn_upsert_product";
     public const string GetProduct = "fn_get_product";
     public const string DeleteProduct = "fn_delete_product";
+
+    public const string InsertProductImgMapping = "fn_insert_product_img_mapping";
+    public const string GetProductImgMapping = "fn_get_product_img_mapping";
+    public const string DeleteProductImgMapping = "fn_delete_product_img_mapping";
 }
