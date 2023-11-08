@@ -10,7 +10,10 @@ public static class ServiceCollectionExtensions
         @this.TryAddSingleton<IManager<AuthReq, AuthResp>, AuthManager>();
         @this.TryAddSingleton<IManager<RegisterReq, RegisterResp>, RegistrationManager>();
         @this.TryAddSingleton<IManager<LoginReq, LoginResp>, LoginManager>();
+
         @this.TryAddSingleton<IManager<UpsertLstReq, UpsertLstResp>, UpsertLstManager>();
+        @this.TryAddSingleton<IManager<DeleteLstReq, DeleteLstResp>, DeleteLstManager>();
+        @this.TryAddSingleton<IManager<ReadLstReq, ReadLstResp>, ReadLstManager>();
 
         // TODO: make this configurable (factory pattern)...
         @this.AddGoogleAuthServices(configuration);

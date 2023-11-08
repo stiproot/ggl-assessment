@@ -38,5 +38,10 @@ internal static class Endpoints
             var res = await manager.ManageAsync(req);
             return Results.Ok(res);
         });
+
+        @this.MapGet("/health", () =>
+        {
+            return Results.Ok("Running :)");
+        }).AllowAnonymous();
     }
 }
