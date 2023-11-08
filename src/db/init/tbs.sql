@@ -24,7 +24,7 @@ CREATE TABLE tb_product(
 	creation_timestamp_utc TIMESTAMP NOT NULL DEFAULT NOW(),
 	usr_id BIGINT NOT NULL,
 	inactive BOOLEAN NOT NULL DEFAULT FALSE,
-	desc VARCHAR(250) NOT NULL,
+	"desc" VARCHAR(250) NOT NULL,
 	code VARCHAR(25) NOT NULL
 );
 
@@ -55,5 +55,5 @@ CREATE TABLE tb_lst_status(
 	creation_timestamp_utc TIMESTAMP NOT NULL DEFAULT NOW(),
 	usr_id BIGINT NOT NULL,
 	inactive BOOLEAN NOT NULL DEFAULT FALSE,
-	desc VARCHAR(50) NOT NULL UNIQUE
+	"desc" VARCHAR(50) NOT NULL UNIQUE
 );

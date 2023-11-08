@@ -1,6 +1,6 @@
 ﻿namespace Ggl.Slst.Db.Abstractions;
 
-public abstract class BaseQryResult
+public abstract class BaseDbQryResult
 {
     public long Id { get; init; } = -1;
     public Guid Guid { get; init; } = Guid.Empty;

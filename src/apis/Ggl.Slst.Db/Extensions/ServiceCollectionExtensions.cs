@@ -2,7 +2,7 @@ namespace Ggl.Slst.Db.Extensions;
 
 public static partial class ServiceCollectionExtensions
 {
-    public static IServiceCollection AddDatabaseUtilityServices(
+    public static IServiceCollection AddDbServices(
         this IServiceCollection @this,
         IConfiguration configuration
     )

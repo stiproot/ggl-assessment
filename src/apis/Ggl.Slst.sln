@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Auth.Unit.Tests", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Db", "Ggl.Slst.Db\Ggl.Slst.Db.csproj", "{12B421A7-CFEA-413A-A153-588C1D1A5CFB}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Db.Integration.Tests", "Ggl.Slst.Db.Integration.Tests\Ggl.Slst.Db.Integration.Tests.csproj", "{5C8265D7-720D-4170-BC3A-20B980D05F1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -42,5 +44,9 @@ Global
 		{12B421A7-CFEA-413A-A153-588C1D1A5CFB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{12B421A7-CFEA-413A-A153-588C1D1A5CFB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{12B421A7-CFEA-413A-A153-588C1D1A5CFB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
