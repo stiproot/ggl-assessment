@@ -1,0 +1,23 @@
+version: "2"
+services:
+  slst-db:
+    networks:
+      - slst
+    build: ./db
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER postgres
+      - POSTGRES_PASSWORD password
+      - POSTGRES_DB slst
+
+  slst-api:
+    networks:
+      - slst
+    build: ./src/Ggl.Slst.Api
+    ports:
+      - 5079:5079
+
+networks:
+  slst:
+    driver: bridge
