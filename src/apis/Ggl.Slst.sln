@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Db", "Ggl.Slst.Db\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Db.Integration.Tests", "Ggl.Slst.Db.Integration.Tests\Ggl.Slst.Db.Integration.Tests.csproj", "{5C8265D7-720D-4170-BC3A-20B980D05F1F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.FileStore", "Ggl.Slst.FileStore\Ggl.Slst.FileStore.csproj", "{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5C8265D7-720D-4170-BC3A-20B980D05F1F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
