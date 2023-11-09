@@ -2,4 +2,5 @@
 
 public interface IFileStoreQryResult
 {
+    ObjectStat? ExtResult { get; init; }
 }

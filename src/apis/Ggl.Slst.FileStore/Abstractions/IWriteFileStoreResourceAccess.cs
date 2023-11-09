@@ -2,8 +2,13 @@ namespace Ggl.Slst.FileStore.Abstractions;
 
 public interface IWriteFileStoreResourceAccess
 {
-    Task ExecuteAsync(
-        IFileStoreCmd cmd,
+    Task UpsertImgAsync(
+        UpsertImgFileStoreCmd cmd,
+        CancellationToken cancellationToken
+    );
+
+    Task DeleteImgAsync(
+        DeleteImgFileStoreCmd cmd,
         CancellationToken cancellationToken
     );
 }

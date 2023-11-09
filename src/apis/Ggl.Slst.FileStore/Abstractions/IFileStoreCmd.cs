@@ -2,6 +2,8 @@
 
 public interface IFileStoreCmd
 {
-    string Name { get; init; }
+    string ObjectName { get; init; }
+    string FileName { get; init; }
+    string ContentType { get; init; }
     IFileStoreCmdResult Result { get; set; }
 }

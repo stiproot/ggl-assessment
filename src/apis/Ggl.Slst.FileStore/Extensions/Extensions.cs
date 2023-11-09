@@ -14,11 +14,9 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration
     )
     {
-        string rootUsr = configuration[ROOT_USR_KEY];
-        string rootPwd = configuration[ROOT_PWD_KEY];
-        string enpoint = configuration[ENDPOINT_KEY];
-
-        // @this.AddMinio(rootUsr, rootPwd);
+        string rootUsr = configuration[ROOT_USR_KEY]!;
+        string rootPwd = configuration[ROOT_PWD_KEY]!;
+        string endpoint = configuration[ENDPOINT_KEY]!;
 
         @this.AddMinio(configureClient => configureClient
             .WithEndpoint(endpoint)

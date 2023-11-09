@@ -1,26 +1,18 @@
 namespace Ggl.Slst.FileStore.Core;
 
-public class ReadFileStoreResourceAccess : IReadFileStoreResourceAccess
+public class ReadFileStoreResourceAccess : BaseFileStoreResourceAccess, IReadFileStoreResourceAccess
 {
-    protected readonly IMinioClient _Client;
+    public ReadFileStoreResourceAccess(
+        IMinioClient client,
+        IArgFactory argFactory
+    ) : base(client, argFactory) { }
 
-    public ReadFileStoreResourceAccess(IMinioClient client)
+    public async Task<GetImgFileStoreQryResult> GetImgAsync(GetImgFileStoreQry qry)
     {
-        this._Client = client ?? throw new ArgumentNullException(nameof(client));
-    }
+        var arg = this._ArgFactory.GetObjectArgs(qry.ObjectName, qry.FileName);
 
-    public async Task<IEnumerable<TFileStoreQryResult>> QueryAsync<TFileStoreQry, TFileStoreQryResult>(TFileStoreQry qry)
-        where TFileStoreQry : IFileStoreQry
-        where TFileStoreQryResult : IFileStoreQryResult
-    {
-        throw new NotImplementedException();
-    }
+        var result = await this._Client.GetObjectAsync(arg);
 
-    public async Task<TFileStoreQryResult> QueryFirstOrDefaultAsync<TFileStoreQry, TFileStoreQryResult>(TFileStoreQry qry)
-        where TFileStoreQry : IFileStoreQry
-        where TFileStoreQryResult : IFileStoreQryResult
-    {
-        // var result = await this._Client.GetObjectAsync<TFileStoreQryResult>(...);
-        throw new NotImplementedException();
+        return new GetImgFileStoreQryResult { ExtResult = result };
     }
 }

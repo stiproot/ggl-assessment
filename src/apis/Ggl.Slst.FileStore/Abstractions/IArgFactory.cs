@@ -7,29 +7,11 @@ public interface IArgFactory
         string fileName
     );
     BucketExistsArgs BucketExistsArgs();
-    ListObjectsArgs ListObjectsArgs();
+    ListObjectsArgs ListObjectsArgs(string prefix);
     PutObjectArgs PutObjectArgs(
         string objectName, 
         string fileName,
         string contentType
     );
+    RemoveObjectArgs RemoveObjectArgs(string objectName);
 }
-
-
-        // var beArgs = new BucketExistsArgs()
-
-            // var args = new GetObjectArgs()
-            //     .WithBucket(bucketName)
-            //     .WithObject(objectName)
-            //     .WithFile(objectName);
-
-        // var listArgs = new ListObjectsArgs()
-        //     .WithBucket(bucketName)
-        //     .WithPrefix(prefix)
-        //     .WithRecursive(recursive);
-
-        // var putObjectArgs = new PutObjectArgs()
-        //     .WithBucket(bucketName)
-        //     .WithObject(objectName)
-        //     .WithFileName(filePath)
-        //     .WithContentType(contentType);
