@@ -2,15 +2,15 @@ namespace Ggl.Slst.FileStore.Core;
 
 public abstract class BaseFileStoreResourceAccess
 {
-    protected readonly IMinioClient _Client;
+    protected readonly IFileStoreClientFactory _FileStoreClientFactory;
     protected readonly IArgFactory _ArgFactory; 
 
     public BaseFileStoreResourceAccess(
-        IMinioClient client,
+        IFileStoreClientFactory fileStoreClientFactory,
         IArgFactory argFactory
     )
     {
-        this._Client = client ?? throw new ArgumentNullException(nameof(client));
+        this._FileStoreClientFactory = fileStoreClientFactory ?? throw new ArgumentNullException(nameof(fileStoreClientFactory));
         this._ArgFactory = argFactory ?? throw new ArgumentNullException(nameof(argFactory));
     }
 }

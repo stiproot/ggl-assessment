@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.Db.Integration.Tes
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.FileStore", "Ggl.Slst.FileStore\Ggl.Slst.FileStore.csproj", "{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ggl.Slst.FileStore.Integration.Tests", "Ggl.Slst.FileStore.Integration.Tests\Ggl.Slst.FileStore.Integration.Tests.csproj", "{1341C451-C865-40FC-804E-03AA5CE5F518}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -54,5 +56,9 @@ Global
 		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FEAC15CD-94FE-45CC-8D78-AEAEDB7E4C03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1341C451-C865-40FC-804E-03AA5CE5F518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1341C451-C865-40FC-804E-03AA5CE5F518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1341C451-C865-40FC-804E-03AA5CE5F518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1341C451-C865-40FC-804E-03AA5CE5F518}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal

@@ -9,6 +9,7 @@ public class ArgFactory : IArgFactory
     public ArgFactory(IConfiguration configuration)
     {
         this._bucketName = configuration["FileStore:Minio:BucketName"]!;
+        Console.WriteLine(this._bucketName);
     }
 
     public GetObjectArgs GetObjectArgs(

@@ -3,9 +3,11 @@ namespace Ggl.Slst.FileStore.Core;
 public class WriteFileStoreResourceAccess : BaseFileStoreResourceAccess, IWriteFileStoreResourceAccess
 {
     public WriteFileStoreResourceAccess(
-        IMinioClient client,
+        IFileStoreClientFactory fileStoreClientFactory,
         IArgFactory argFactory
-    ) : base(client, argFactory) { }
+    ) : base(fileStoreClientFactory, argFactory) 
+    {
+    }
 
     public async Task UpsertImgAsync(
         UpsertImgFileStoreCmd cmd,
@@ -14,7 +16,9 @@ public class WriteFileStoreResourceAccess : BaseFileStoreResourceAccess, IWriteF
     {
         var arg = this._ArgFactory.PutObjectArgs(cmd.ObjectName, cmd.FileName, cmd.ContentType);
 
-        await this._Client.PutObjectAsync(arg);
+        var client = this._FileStoreClientFactory.Create();
+
+        await client.PutObjectAsync(arg);
     }
 
     public async Task DeleteImgAsync(
@@ -24,6 +28,8 @@ public class WriteFileStoreResourceAccess : BaseFileStoreResourceAccess, IWriteF
     {
         var arg = this._ArgFactory.RemoveObjectArgs(cmd.ObjectName);
 
-        await this._Client.RemoveObjectAsync(arg);
+        var client = this._FileStoreClientFactory.Create();
+
+        await client.RemoveObjectAsync(arg);
     }
 }
