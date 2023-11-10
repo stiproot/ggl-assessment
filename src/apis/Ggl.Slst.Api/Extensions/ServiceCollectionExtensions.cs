@@ -1,4 +1,6 @@
 using Ggl.Slst.Auth.Google.Extensions;
+using Ggl.Slst.Db.Extensions;
+using Ggl.Slst.FileStore.Extensions;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Ggl.Slst.Api.Extensions;
@@ -19,6 +21,8 @@ public static class ServiceCollectionExtensions
 
         // TODO: make this configurable (factory pattern)...
         @this.AddGoogleAuthServices(configuration);
+        @this.AddDbServices(configuration);
+        @this.AddFileStoreServices();
 
         return @this;
     }
