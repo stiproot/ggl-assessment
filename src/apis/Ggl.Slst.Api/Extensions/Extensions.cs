@@ -1,6 +1,8 @@
 using Ggl.Slst.Auth.Google.Extensions;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
+namespace Ggl.Slst.Api.Extensions;
+
 public static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCoreServices(this IServiceCollection @this,
