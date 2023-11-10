@@ -5,7 +5,11 @@ builder.Services.AddCoreServices(configuration);
 
 var app = builder.Build();
 
-app.MapEndpoints();
+app
+    .MapAuthEndpoints()
+    .MapHealthEndpoints()
+    .MapFileEndpoints()
+    .MapLstEndpoints();
 
 // TODO: complete app builder configuration...
 
