@@ -1,5 +1,7 @@
 namespace Ggl.Slst.Api.Abstractions;
 
-internal record Req : IReq
+internal abstract record Req : IReq
 {
+    public long Id { get; init; }
+    public long UsrId { get; init; }
 }

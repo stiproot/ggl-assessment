@@ -4,6 +4,7 @@
     <ProjectReference Include="..\Ggl.Slst.Auth\Ggl.Slst.Auth.csproj" />
     <ProjectReference Include="..\Ggl.Slst.Db\Ggl.Slst.Db.csproj" />
     <ProjectReference Include="..\Ggl.Slst.FileStore\Ggl.Slst.FileStore.csproj" />
+    <ProjectReference Include="..\Ggl.Slst.Mapping\Ggl.Slst.Mapping.csproj" />
   </ItemGroup>
 
   <PropertyGroup>
