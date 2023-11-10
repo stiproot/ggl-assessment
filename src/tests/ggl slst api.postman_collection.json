@@ -1,0 +1,184 @@
+{
+	"info": {
+		"_postman_id": "84e95b9c-9513-4afd-9902-070d519d388d",
+		"name": "ggl slst api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "9729201"
+	},
+	"item": [
+		{
+			"name": "health",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5079/health",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"health"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upsert (insert) lst",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productIds\": [\n        1,\n        2,\n        3\n    ],\n    \"name\": \"lst_x\",\n    \"usrId\": 1\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5079/lst/upsert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"lst",
+						"upsert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upsert (update) lst",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"productIds\": [\n        1,\n        2,\n        3,\n        4\n    ],\n    \"name\": \"lst_x\",\n    \"usrId\": 1,\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5079/lst/upsert",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"lst",
+						"upsert"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "read lst",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"usrId\": 1,\n    \"id\": 3\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5079/lst/read",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"lst",
+						"read"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete lst",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"id\": 2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5079/lst/delete",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"lst",
+						"delete"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "auth / test",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5079/auth/tmp",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5079",
+					"path": [
+						"auth",
+						"tmp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "login",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5238/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5238",
+					"path": [
+						"login"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

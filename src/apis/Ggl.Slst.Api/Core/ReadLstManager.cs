@@ -4,8 +4,9 @@ internal class ReadLstManager : BaseManager, IManager<ReadLstReq, ReadLstResp>
 {
     public ReadLstManager(
         IWriteDbResourceAccess writeDbResourceAccess,
-        IReadDbResourceAccess readDbResourceAccess
-    ) : base(writeDbResourceAccess, readDbResourceAccess)
+        IReadDbResourceAccess readDbResourceAccess,
+        ITypeMapper typeMapper
+    ) : base(writeDbResourceAccess, readDbResourceAccess, typeMapper)
     {
     }
     
@@ -16,13 +17,12 @@ internal class ReadLstManager : BaseManager, IManager<ReadLstReq, ReadLstResp>
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // TODO; implement mapper...
-        var qry = new GetLstDbQry
-        {
-        };
+        var qry = this._TypeMapper.Map<ReadLstReq, GetLstDbQry>(ref req);
 
-        var resp = await this._ReadDbResourceAccess.QueryFirstOrDefaultAsync<GetLstDbQry, GetLstDbQryResult>(qry);
+        var dbResp = await this._ReadDbResourceAccess.QueryFirstOrDefaultAsync<GetLstDbQry, GetLstDbQryResult>(qry);
 
-        return new ReadLstResp { };
+        var resp = this._TypeMapper.Map<GetLstDbQryResult, ReadLstResp>(ref dbResp);
+
+        return resp;
     }
 }

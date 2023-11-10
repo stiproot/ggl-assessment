@@ -4,8 +4,9 @@ internal class UpsertLstManager : BaseManager, IManager<UpsertLstReq, UpsertLstR
 {
     public UpsertLstManager(
         IWriteDbResourceAccess writeDbResourceAccess,
-        IReadDbResourceAccess readDbResourceAccess
-    ) : base(writeDbResourceAccess, readDbResourceAccess)
+        IReadDbResourceAccess readDbResourceAccess,
+        ITypeMapper typeMapper
+    ) : base(writeDbResourceAccess, readDbResourceAccess, typeMapper)
     {
     }
     
@@ -16,10 +17,7 @@ internal class UpsertLstManager : BaseManager, IManager<UpsertLstReq, UpsertLstR
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // TODO; implement mapper...
-        var cmd = new UpsertLstDbCmd
-        {
-        };
+        var cmd = this._TypeMapper.Map<UpsertLstReq, UpsertLstDbCmd>(ref req);
 
         await this._WriteDbResourceAccess.ExecuteAsync(cmd, cancellationToken);
 

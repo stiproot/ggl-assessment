@@ -2,6 +2,8 @@ using Ggl.Slst.Auth.Google.Extensions;
 using Ggl.Slst.Db.Extensions;
 using Ggl.Slst.Mapping.Extensions;
 using Ggl.Slst.FileStore.Extensions;
+using Ggl.Slst.Api.Mappings;
+using AutoMapper;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Ggl.Slst.Api.Extensions;
@@ -26,11 +28,10 @@ public static class ServiceCollectionExtensions
         @this.AddFileStoreServices();
         @this.AddMappingServices();
 
-        // @this.TryAddSingleton<IMapper>(new MapperConfiguration(config =>
-        // {
-        //     config.AddProfile<ModelProfile>();
-        //     config.AddProfile<ClaimProfile>();
-        // }).CreateMapper());
+        @this.TryAddSingleton<IMapper>(new MapperConfiguration(config =>
+        {
+            config.AddProfile<ModelProfile>();
+        }).CreateMapper());
 
         return @this;
     }

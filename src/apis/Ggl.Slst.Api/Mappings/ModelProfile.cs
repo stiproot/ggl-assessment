@@ -9,5 +9,7 @@ public class ModelProfile : Profile
         CreateMap<UpsertLstReq, UpsertLstDbCmd>();
         CreateMap<DeleteLstReq, DeleteLstDbCmd>();
         CreateMap<ReadLstReq, GetLstDbQry>();
+
+        CreateMap<GetLstDbQryResult, ReadLstResp>();
     }
 }

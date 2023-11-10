@@ -5,8 +5,6 @@
 
 SECRETS.txt
 tmp/
-appsettings.json
-appsettings.Development.json
 
 # User-specific files
 *.suo

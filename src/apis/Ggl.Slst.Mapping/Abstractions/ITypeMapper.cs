@@ -1,6 +1,6 @@
 namespace Ggl.Slst.Mapping.Abstractions;
 
-internal interface ITypeMapper
+public interface ITypeMapper
 {
     TTrgt Map<TSrc, TTrgt>(ref TSrc source);
 }

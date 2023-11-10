@@ -4,8 +4,9 @@ internal class DeleteLstManager : BaseManager, IManager<DeleteLstReq, DeleteLstR
 {
     public DeleteLstManager(
         IWriteDbResourceAccess writeDbResourceAccess,
-        IReadDbResourceAccess readDbResourceAccess
-    ) : base(writeDbResourceAccess, readDbResourceAccess)
+        IReadDbResourceAccess readDbResourceAccess,
+        ITypeMapper typeMapper
+    ) : base(writeDbResourceAccess, readDbResourceAccess, typeMapper)
     {
     }
     
@@ -16,10 +17,7 @@ internal class DeleteLstManager : BaseManager, IManager<DeleteLstReq, DeleteLstR
     {
         cancellationToken.ThrowIfCancellationRequested();
 
-        // TODO; implement mapper...
-        var cmd = new DeleteLstDbCmd
-        {
-        };
+        var cmd = this._TypeMapper.Map<DeleteLstReq, DeleteLstDbCmd>(ref req);
 
         await this._WriteDbResourceAccess.ExecuteAsync(cmd, cancellationToken);
 
