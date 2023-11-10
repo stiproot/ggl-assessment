@@ -1,9 +1,28 @@
 namespace Ggl.Slst.Api.Core;
 
-internal class UpsertLstManager : IManager<UpsertLstReq, UpsertLstResp>
+internal class UpsertLstManager : BaseManager, IManager<UpsertLstReq, UpsertLstResp>
 {
-    public async Task<UpsertLstResp> ManageAsync(UpsertLstReq req)
+    public UpsertLstManager(
+        IWriteDbResourceAccess writeDbResourceAccess,
+        IReadDbResourceAccess readDbResourceAccess
+    ) : base(writeDbResourceAccess, readDbResourceAccess)
     {
-        throw new NotImplementedException();
+    }
+    
+    public async Task<UpsertLstResp> ManageAsync(
+        UpsertLstReq req, 
+        CancellationToken cancellationToken
+    )
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        // TODO; implement mapper...
+        var cmd = new UpsertLstDbCmd
+        {
+        };
+
+        await this._WriteDbResourceAccess.ExecuteAsync(cmd, cancellationToken);
+
+        return new UpsertLstResp { };
     }
 }

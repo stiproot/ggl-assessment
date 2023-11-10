@@ -1,9 +1,28 @@
 namespace Ggl.Slst.Api.Core;
 
-internal class DeleteLstManager : IManager<DeleteLstReq, DeleteLstResp>
+internal class DeleteLstManager : BaseManager, IManager<DeleteLstReq, DeleteLstResp>
 {
-    public async Task<DeleteLstResp> ManageAsync(DeleteLstReq req)
+    public DeleteLstManager(
+        IWriteDbResourceAccess writeDbResourceAccess,
+        IReadDbResourceAccess readDbResourceAccess
+    ) : base(writeDbResourceAccess, readDbResourceAccess)
     {
-        throw new NotImplementedException();
+    }
+    
+    public async Task<DeleteLstResp> ManageAsync(
+        DeleteLstReq req, 
+        CancellationToken cancellationToken
+    )
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        // TODO; implement mapper...
+        var cmd = new DeleteLstDbCmd
+        {
+        };
+
+        await this._WriteDbResourceAccess.ExecuteAsync(cmd, cancellationToken);
+
+        return new DeleteLstResp { };
     }
 }

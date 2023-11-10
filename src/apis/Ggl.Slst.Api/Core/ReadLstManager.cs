@@ -1,9 +1,28 @@
 namespace Ggl.Slst.Api.Core;
 
-internal class ReadLstManager : IManager<ReadLstReq, ReadLstResp>
+internal class ReadLstManager : BaseManager, IManager<ReadLstReq, ReadLstResp>
 {
-    public async Task<ReadLstResp> ManageAsync(ReadLstReq req)
+    public ReadLstManager(
+        IWriteDbResourceAccess writeDbResourceAccess,
+        IReadDbResourceAccess readDbResourceAccess
+    ) : base(writeDbResourceAccess, readDbResourceAccess)
     {
-        throw new NotImplementedException();
+    }
+    
+    public async Task<ReadLstResp> ManageAsync(
+        ReadLstReq req, 
+        CancellationToken cancellationToken
+    )
+    {
+        cancellationToken.ThrowIfCancellationRequested();
+
+        // TODO; implement mapper...
+        var qry = new GetLstDbQry
+        {
+        };
+
+        var resp = await this._ReadDbResourceAccess.QueryFirstOrDefaultAsync<GetLstDbQry, GetLstDbQryResult>(qry);
+
+        return new ReadLstResp { };
     }
 }
