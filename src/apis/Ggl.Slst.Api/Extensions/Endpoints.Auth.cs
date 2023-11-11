@@ -23,6 +23,16 @@ internal static partial class Endpoints
         @this.MapGet("/ext/auth", 
             async (HttpContext context, CancellationToken cancellationToken) =>
         {
+            Console.WriteLine("ext/auth hit!");
+
+            string accessToken = context.Request.Query["access_token"]!;
+            int expiresIn = int.Parse(context.Request.Query["expires_in"]!);
+            string tokenType = context.Request.Query["token_type"]!;
+            string scope = context.Request.Query["scope"]!;
+            string authUser = context.Request.Query["authuser"]!;
+
+            Console.WriteLine($"access_token: {accessToken}, expires_in: {expiresIn}, token_type: {tokenType}, scope: {scope}");
+
             throw new NotImplementedException();
         });
 

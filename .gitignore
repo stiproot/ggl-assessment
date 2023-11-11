@@ -5,6 +5,7 @@
 
 SECRETS.txt
 tmp/
+client_secret.json
 
 # User-specific files
 *.suo
