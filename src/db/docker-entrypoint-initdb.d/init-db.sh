@@ -27,6 +27,9 @@ psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_product.sql
 psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_product_img_mapping.sql
 psql slst -U "$POSTGRES_USER" </db/init/fns/fn_insert_product_img_mapping.sql
 psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_product_img_mapping.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_upsert_ext_access_token.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_get_ext_access_token.sql
+psql slst -U "$POSTGRES_USER" </db/init/fns/fn_delete_ext_access_token.sql
 
 psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_lst_status.sql
 psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_products.sql
