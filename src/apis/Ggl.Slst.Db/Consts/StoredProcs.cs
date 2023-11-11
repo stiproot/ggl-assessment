@@ -21,4 +21,8 @@ internal static class StoredProcs
     public const string InsertProductImgMapping = "fn_insert_product_img_mapping";
     public const string GetProductImgMapping = "fn_get_product_img_mapping";
     public const string DeleteProductImgMapping = "fn_delete_product_img_mapping";
+
+    public const string UpsertExtAccessToken = "fn_upsert_ext_access_token";
+    public const string GetExtAccessToken = "fn_get_ext_access_token";
+    public const string DeleteExtAccessToken = "fn_delete_ext_access_token";
 }
