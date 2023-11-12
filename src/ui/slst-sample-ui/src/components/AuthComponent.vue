@@ -8,18 +8,17 @@ export default {
   name: "AuthComponent",
   setup() {
     function oauthSignIn() {
-      var oauth2Endpoint = "https://accounts.google.com/o/oauth2/v2/auth";
 
       var form = document.createElement("form");
       form.setAttribute("method", "GET");
-      form.setAttribute("action", oauth2Endpoint);
+      form.setAttribute("action", process.env.VUE_APP_AUTH_URL);
 
       var params = {
-        client_id:
-          "xyz",
-        redirect_uri: "http://localhost:5079/ext/auth",
-        response_type: "token",
-        scope: "openid",
+        client_id: process.env.VUE_APP_CLIENT_ID,
+        redirect_uri: process.env.VUE_APP_REDIRECT_URL,
+        response_type: "code",
+        access_type: "offline",
+        scope: "openid email profile",
         state: "pass-through value",
       };
 

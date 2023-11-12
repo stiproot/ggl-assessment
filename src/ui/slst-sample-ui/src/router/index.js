@@ -11,6 +11,16 @@ const routes = [
     component: () => import("../components/AuthComponent.vue"),
   },
   {
+    path: "/login",
+    name: "login",
+    component: () => import("../components/LoginComponent.vue"),
+  },
+  {
+    path: "/success",
+    name: "success",
+    component: () => import("../components/SuccessComponent.vue"),
+  },
+  {
     path: "/img",
     name: "img",
     component: () => import("../components/ImgComponent.vue"),

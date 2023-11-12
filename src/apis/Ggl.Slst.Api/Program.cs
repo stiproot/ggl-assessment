@@ -2,6 +2,15 @@ var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
 
 builder.Services.AddCoreServices(configuration);
+builder.Services.AddCors(options =>
+    {
+        options.AddDefaultPolicy(builder =>
+        {
+            builder.AllowAnyOrigin()
+                    .AllowAnyHeader()
+                    .AllowAnyMethod();
+        });
+    });
 
 var app = builder.Build();
 
@@ -11,6 +20,9 @@ app
     .MapFileEndpoints()
     .MapLstEndpoints();
 
-// TODO: complete app builder configuration...
+app.UseCors(builder => builder.AllowAnyHeader().AllowAnyMethod().AllowAnyOrigin());
+app.UseHttpsRedirection();
+// app.UseAuthentication();
+// app.UseAuthorization();
 
 app.Run();

@@ -1,3 +1,6 @@
+using Ggl.Slst.Auth;
+using Ggl.Slst.Auth.Abstractions;
+
 namespace Ggl.Slst.Api.Extensions;
 
 internal static partial class Endpoints
@@ -14,27 +17,53 @@ internal static partial class Endpoints
         @this.MapPost("/auth/login", 
             async (LoginReq req, IManager<LoginReq, LoginResp> manager, CancellationToken cancellationToken) =>
         {
-            var res = await manager.ManageAsync(req, cancellationToken);
+            // var res = await manager.ManageAsync(req, cancellationToken);
 
-            // TODO: confirm this approach...
-            return Results.Redirect(res.Uri);
-        });
+            // // TODO: confirm this approach...
+            // return Results.Redirect(res.Uri);
+
+            return Results.Ok();
+
+        }).RequireAuthorization();
 
         @this.MapGet("/ext/auth", 
-            async (HttpContext context, CancellationToken cancellationToken) =>
+            async (HttpContext context, IGoogleAuthenticator authenticator, CancellationToken cancellationToken) =>
         {
-            Console.WriteLine("ext/auth hit!");
+            // Console.WriteLine("ext/auth hit!");
 
-            string accessToken = context.Request.Query["access_token"]!;
-            int expiresIn = int.Parse(context.Request.Query["expires_in"]!);
-            string tokenType = context.Request.Query["token_type"]!;
-            string scope = context.Request.Query["scope"]!;
-            string authUser = context.Request.Query["authuser"]!;
+            // string code = context.Request.Query["code"]!;
+            // Console.WriteLine(code);
 
-            Console.WriteLine($"access_token: {accessToken}, expires_in: {expiresIn}, token_type: {tokenType}, scope: {scope}");
+            // string accessToken = await authenticator.ExchangeCodeForAccessTokenAsync(code);
+            // Console.WriteLine(accessToken);
 
-            throw new NotImplementedException();
-        });
+            // // Console.WriteLine(context.);
+
+            // Console.WriteLine(context.Request.QueryString.Value);
+
+            // Console.WriteLine(context.Request.Query.Count());
+
+            // foreach(var param in context.Request.Query)
+            // {
+            //     // Console.WriteLine($"{param.Key}: {context.Request.Query[param.Key]}");
+            //     Console.WriteLine($"{param.Key}: {context.Request.Query[param.Key]}");
+            // }
+
+            // string accessToken = context.Request.Query["access_token"]!;
+            // string userId = jwtTokenHandler.DecodeUserId(accessToken);
+
+            // int expiresIn = int.Parse(context.Request.Query["expires_in"]!);
+            // string tokenType = context.Request.Query["token_type"]!;
+            // string scope = context.Request.Query["scope"]!;
+            // string authUser = context.Request.Query["authuser"]!;
+
+            // Console.WriteLine($"access_token: {accessToken}, userId: {userId}, expires_in: {expiresIn}, token_type: {tokenType}, scope: {scope}");
+
+            // throw new NotImplementedException();
+
+            return Results.Accepted();
+
+        }).AllowAnonymous();
 
         return @this;
     }

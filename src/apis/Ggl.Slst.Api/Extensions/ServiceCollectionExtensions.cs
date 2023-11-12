@@ -1,4 +1,4 @@
-using Ggl.Slst.Auth.Google.Extensions;
+using Ggl.Slst.Auth.Extensions;
 using Ggl.Slst.Db.Extensions;
 using Ggl.Slst.Mapping.Extensions;
 using Ggl.Slst.FileStore.Extensions;
@@ -22,8 +22,7 @@ public static class ServiceCollectionExtensions
         @this.TryAddSingleton<IManager<DeleteLstReq, DeleteLstResp>, DeleteLstManager>();
         @this.TryAddSingleton<IManager<ReadLstReq, ReadLstResp>, ReadLstManager>();
 
-        // TODO: make this configurable (factory pattern)...
-        @this.AddGoogleAuthServices(configuration);
+        @this.AddAuthServices(configuration);
         @this.AddDbServices(configuration);
         @this.AddFileStoreServices();
         @this.AddMappingServices();
