@@ -11,13 +11,11 @@ public class UsrTests : BaseTests
     {
         // ARRANGE
         var cancellationToken = new CancellationToken();
-        var usrName = Guid.NewGuid().ToString();
         var name = Guid.NewGuid().ToString();
         var surname = Guid.NewGuid().ToString();
         var email = $"{Guid.NewGuid()}@gmail.com";
-        var pwd = Guid.NewGuid().ToString()[..24];
-        var upsertCmd = new UpsertUsrDbCmd { Usrname = usrName, Name = name, Surname = surname, Pwd = pwd };
-        var readQry = new GetUsrDbQry { QueryString = usrName };
+        var upsertCmd = new UpsertUsrDbCmd { Name = name, Surname = surname, Email = email};
+        var readQry = new GetUsrDbQry { QueryString = email };
 
         // ACT
         await this._WriteDbResourceAccess.ExecuteAsync(upsertCmd, cancellationToken);
@@ -27,7 +25,7 @@ public class UsrTests : BaseTests
 
         // ASSERT
         Assert.Single(readResult);
-        Assert.NotNull(readResult.FirstOrDefault(r => r.Usrname.Equals(usrName)));
+        Assert.NotNull(readResult.FirstOrDefault(r => r.Email.Equals(email)));
 
         var deleteCmd = new DeleteUsrDbCmd { Id = readResult.First().Id };
         await this._WriteDbResourceAccess.ExecuteAsync(deleteCmd, cancellationToken);

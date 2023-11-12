@@ -15,6 +15,9 @@ public static class ServiceCollectionExtensions
         var jwtSection = configuration.GetSection(nameof(JwtOptions));
         @this.Configure<JwtOptions>(jwtSection);
 
+        var oAuth2Section = configuration.GetSection("OAuth2:Google");
+        @this.Configure<OAuth2Options>(oAuth2Section);
+
         var options = jwtSection.Get<JwtOptions>() ?? throw new ArgumentNullException(nameof(jwtSection));
         var secret = Encoding.ASCII.GetBytes(options.Secret);
 
@@ -42,7 +45,6 @@ public static class ServiceCollectionExtensions
 
         @this.TryAddScoped<IGoogleAuthenticator, GoogleAuthenticator>();
         @this.TryAddSingleton<IJwtService, JwtService>();
-        // @this.TryAddSingleton<IJwtTokenHandler, JwtTokenHandler>();
 
         return @this;
     }

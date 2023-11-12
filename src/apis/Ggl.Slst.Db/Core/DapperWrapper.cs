@@ -1,4 +1,4 @@
-namespace Ggl.Slst.Db;
+namespace Ggl.Slst.Db.Core;
 
 public class DapperWrapper : IDapperWrapper
 {

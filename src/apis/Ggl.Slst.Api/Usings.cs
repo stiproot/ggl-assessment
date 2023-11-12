@@ -7,3 +7,6 @@ global using Ggl.Slst.Db.Domain;
 global using Ggl.Slst.FileStore.Abstractions;
 global using Ggl.Slst.FileStore.Domain;
 global using Ggl.Slst.Mapping.Abstractions;
+global using Ggl.Slst.Auth.Abstractions;
+global using Ggl.Slst.Auth.Core;
+global using Ggl.Slst.Auth.Models;

@@ -17,7 +17,7 @@ public class JwtService : IJwtService
         this._jwtOptions = jwtOptions.Value ?? throw new ArgumentNullException(nameof(jwtOptions));
     }
 
-    public string BuildToken(IEnumerable<Claim> claims)
+    public string BuildToken(ref IEnumerable<Claim> claims)
     {
         var key = Encoding.ASCII.GetBytes(_jwtOptions.Secret);
 
@@ -34,11 +34,11 @@ public class JwtService : IJwtService
         return new JwtSecurityTokenHandler().WriteToken(jwtSecurityToken);
     }
 
-    public IEnumerable<Claim> BuildClaims(User user)
+    public IEnumerable<Claim> BuildClaims(ref User user)
     {
         var claims = new List<Claim>()
         {
-            new(JwtClaimTypes.Id, user.Id),
+            new(JwtClaimTypes.Id, user.Id.ToString()),
             new(JwtClaimTypes.Email, user.Email),
             new(JwtClaimTypes.GivenName, user.GivenName),
             new(JwtClaimTypes.FamilyName, user.FamilyName),

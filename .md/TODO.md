@@ -1,5 +1,5 @@
 [x] orchestrate lst db workflows from api managers
-[ ] orchestrate auth db workflows from api managers
+[x] orchestrate auth db workflows from api managers
 [ ] orchestrate file store workflows from api managers
 
 [ ] user oauth token management

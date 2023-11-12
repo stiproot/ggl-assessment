@@ -18,11 +18,9 @@ erDiagram
         TIMESTAMP creation_timestamp_utc
         BIGINT usr_id
         BOOLEAN inactive
-        VARCHAR(50) usrname
         VARCHAR(50) name
         VARCHAR(50) surname
         VARCHAR(50) email
-        VARCHAR(25) pwd
     }
 
     tb_lst ||--o{ tb_product : contains

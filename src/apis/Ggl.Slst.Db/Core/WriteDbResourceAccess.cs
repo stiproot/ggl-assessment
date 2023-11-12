@@ -24,23 +24,23 @@ public class WriteDbResourceAccess : IWriteDbResourceAccess
         IDbTransaction? transaction = null
     )
     {
+        cancellationToken.ThrowIfCancellationRequested();
+
         var instruction = this._SqlCommandMapper.Map(cmd);
         if (connection is null)
         {
             using var _connection = this._DatabaseConnectionFactory.Create();
-            long id = await this.ExecuteAsync(cmd, cancellationToken, _connection, instruction, transaction);
+            long id = await this.ExecuteAsync(_connection, instruction, transaction);
             cmd.Result = new BaseDbCmdResult { Id = id };
         }
         else
         {
-            long id = await this.ExecuteAsync(cmd, cancellationToken, connection, instruction, transaction);
+            long id = await this.ExecuteAsync(connection, instruction, transaction);
             cmd.Result = new BaseDbCmdResult { Id = id };
         }
     }
 
     private async Task<long> ExecuteAsync(
-        IDbCmd cmd,
-        CancellationToken cancellationToken,
         IDbConnection connection,
         ISqlInstruction instruction,
         IDbTransaction? transaction

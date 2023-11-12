@@ -4,6 +4,6 @@ namespace Ggl.Slst.Auth.Abstractions;
 
 public interface IJwtService
 {
-    string BuildToken(IEnumerable<Claim> claims);
-    IEnumerable<Claim> BuildClaims(User user);
+    string BuildToken(ref IEnumerable<Claim> claims);
+    IEnumerable<Claim> BuildClaims(ref User user);
 }

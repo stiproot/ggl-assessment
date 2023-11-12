@@ -14,7 +14,7 @@ public static class ServiceCollectionExtensions
         IConfiguration configuration
     )
     {
-        @this.TryAddSingleton<IManager<AuthReq, AuthResp>, AuthManager>();
+        @this.TryAddScoped<IManager<AuthReq, AuthResp>, AuthManager>();
         @this.TryAddSingleton<IManager<RegisterReq, RegisterResp>, RegistrationManager>();
         @this.TryAddSingleton<IManager<LoginReq, LoginResp>, LoginManager>();
 
@@ -30,6 +30,7 @@ public static class ServiceCollectionExtensions
         @this.TryAddSingleton<IMapper>(new MapperConfiguration(config =>
         {
             config.AddProfile<ModelProfile>();
+            config.AddProfile<OAuthProfile>();
         }).CreateMapper());
 
         return @this;
