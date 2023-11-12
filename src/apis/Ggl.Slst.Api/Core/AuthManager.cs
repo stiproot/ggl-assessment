@@ -34,6 +34,7 @@ internal class AuthManager : BaseManager, IManager<AuthReq, AuthResp>
             UsrId = dbCmd.Result.Id,
             Token = accessToken.AccessToken,
             RefreshToken = accessToken.RefreshToken,
+            ExpirationTimestampUtc = DateTime.UtcNow.AddSeconds(accessToken.ExpiresIn),
         };
         user.Id = dbCmd.Result.Id;
         await this._WriteDbResourceAccess.ExecuteAsync(tokenDbCmd, cancellationToken);

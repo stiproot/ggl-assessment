@@ -2,6 +2,7 @@ namespace Ggl.Slst.Db.Integration.Tests;
 
 public abstract class BaseTests
 {
+    protected const int USER_ID = 1;
     protected readonly IServiceProvider _Provider = ServiceProviderFactory.Provider();
     protected readonly IWriteDbResourceAccess _WriteDbResourceAccess;
     protected readonly IReadDbResourceAccess _ReadDbResourceAccess;

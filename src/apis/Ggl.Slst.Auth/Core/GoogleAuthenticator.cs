@@ -1,7 +1,7 @@
-using System.Text.Json;
 using Ggl.Slst.Auth.Extensions;
 using Google.Apis.Auth;
 using Microsoft.Extensions.Options;
+using Newtonsoft.Json;
 
 namespace Ggl.Slst.Auth.Core;
 
@@ -47,7 +47,11 @@ public sealed class GoogleAuthenticator : IGoogleAuthenticator
         resp.EnsureSuccessStatusCode();
 
         var content = await resp.Content.ReadAsStringAsync();
-        var obj = JsonSerializer.Deserialize<ExtAccessTokenResp>(content) ?? throw new Exception("Failed to deserialize response");
+
+        Console.WriteLine(content);
+
+        // var obj = JsonSerializer.Deserialize<ExtAccessTokenResp>(content) ?? throw new Exception("Failed to deserialize response");
+        var obj = JsonConvert.DeserializeObject<ExtAccessTokenResp>(content) ?? throw new Exception("Failed to deserialize response");
 
         return obj;
     }

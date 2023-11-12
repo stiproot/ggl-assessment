@@ -4,8 +4,8 @@ create or replace function fn_upsert_ext_access_token(
   p_usr_id bigint,
   p_token varchar(500),
   p_refresh_token varchar(500),
-  p_inactive boolean, 
-  p_expiration_timestamp_utc TIMESTAMP
+  p_expiration_timestamp_utc TIMESTAMP,
+  p_inactive boolean 
 )
 returns bigint
 language plpgsql
@@ -21,10 +21,10 @@ begin
         refresh_token = p_refresh_token, 
         inactive = p_inactive,
         expiration_timestamp_utc = p_expiration_timestamp_utc
-      where id = p_id
+      where id = p_id and usr_id = p_usr_id
       returning id into v_id;
     ELSE
-      insert into tb_usr
+      insert into tb_ext_access_token
       (
         usr_id,
         token,

@@ -36,6 +36,7 @@ psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_products.sql
 psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_usr-system.sql
 psql slst -U "$POSTGRES_USER" </db/init/seed/insert-tb_img.sql
 
+# TODO: fix this...
 # FN_SCRIPTS_DIR="/db/init/fns"
 # all_fn_scripts=""
 
