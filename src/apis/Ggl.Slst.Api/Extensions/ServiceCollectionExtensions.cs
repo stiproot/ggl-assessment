@@ -5,20 +5,17 @@ using Ggl.Slst.FileStore.Extensions;
 using Ggl.Slst.Api.Mappings;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.OpenApi.Models;
 
 namespace Ggl.Slst.Api.Extensions;
 
-public static class ServiceCollectionExtensions
+internal static class ServiceCollectionExtensions
 {
     public static IServiceCollection AddCoreServices(this IServiceCollection @this,
         IConfiguration configuration
     )
     {
         @this.TryAddScoped<IManager<AuthReq, AuthResp>, AuthManager>();
-        @this.TryAddSingleton<IManager<RegisterReq, RegisterResp>, RegistrationManager>();
-        @this.TryAddSingleton<IManager<LoginReq, LoginResp>, LoginManager>();
-
+        @this.TryAddSingleton<IManager<UpsertImgReq, UpsertImgResp>, UpsertImgManager>();
         @this.TryAddSingleton<IManager<UpsertLstReq, UpsertLstResp>, UpsertLstManager>();
         @this.TryAddSingleton<IManager<DeleteLstReq, DeleteLstResp>, DeleteLstManager>();
         @this.TryAddSingleton<IManager<ReadLstReq, ReadLstResp>, ReadLstManager>();
@@ -35,10 +32,7 @@ public static class ServiceCollectionExtensions
         }).CreateMapper());
 
         @this.AddEndpointsApiExplorer();
-        @this.AddSwaggerGen(c =>
-        {
-            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ggl.Slst.Api", Version = "v1" });
-        });
+        @this.AddSwaggerGen();
 
         return @this;
     }

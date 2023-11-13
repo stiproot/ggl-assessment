@@ -100,6 +100,12 @@ A Postman collection is included containing some helpful requests for testing th
 
 A sample user interface is provided, written in Vue.js and Quasar, for testing OAuth functionalities.
 
+```bash
+npm install && npm run serve
+```
+
+By default the `AuthComponent` will open, triggering the OAuth2 authentication flow.
+
 ## Getting Started
 
 ### Prerequisites

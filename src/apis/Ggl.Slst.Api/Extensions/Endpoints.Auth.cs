@@ -1,7 +1,15 @@
 namespace Ggl.Slst.Api.Extensions;
 
+/// <summary>
+/// Contains extension methods for mapping authentication endpoints.
+/// </summary>
 internal static partial class Endpoints
 {
+    /// <summary>
+    /// Maps authentication endpoints to the specified web application.
+    /// </summary>
+    /// <param name="this">The web application to add the endpoints to.</param>
+    /// <returns>The same web application, after the endpoints have been added.</returns>
     public static WebApplication MapAuthEndpoints(this WebApplication @this)
     {
         @this.MapGet("/ext/auth", 
@@ -23,7 +31,10 @@ internal static partial class Endpoints
 
             return Results.Ok(resp);
 
-        }).AllowAnonymous();
+        })
+            .AllowAnonymous()
+            .WithName("Ext Auth")
+            .WithOpenApi();
 
         return @this;
     }

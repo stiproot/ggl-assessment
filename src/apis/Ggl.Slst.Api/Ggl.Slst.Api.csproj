@@ -1,20 +1,22 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="7.0.13" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
   <ItemGroup>
     <ProjectReference Include="..\Ggl.Slst.Auth\Ggl.Slst.Auth.csproj" />
     <ProjectReference Include="..\Ggl.Slst.Db\Ggl.Slst.Db.csproj" />
     <ProjectReference Include="..\Ggl.Slst.FileStore\Ggl.Slst.FileStore.csproj" />
     <ProjectReference Include="..\Ggl.Slst.Mapping\Ggl.Slst.Mapping.csproj" />
   </ItemGroup>
-
-  <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
-  </ItemGroup>
-
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <Nullable>enable</Nullable>
-    <ImplicitUsings>enable</ImplicitUsings>
-  </PropertyGroup>
 
 </Project>

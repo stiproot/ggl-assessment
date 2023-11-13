@@ -7,7 +7,10 @@ internal static partial class Endpoints
         @this.MapGet("/health", () =>
         {
             return Results.Ok("Running :)");
-        }).AllowAnonymous();
+        })
+            .AllowAnonymous()
+            .WithName("Health")
+            .WithOpenApi();
 
         return @this;
     }

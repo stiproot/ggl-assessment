@@ -26,9 +26,10 @@ app.UseHttpsRedirection();
 // app.UseAuthorization();
 
 app.UseSwagger();
-app.UseSwaggerUI(c =>
-{
-    c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ggl.Slst.Api");
-});
+app.UseSwaggerUI();
+// app.UseSwaggerUI(c =>
+// {
+//     c.SwaggerEndpoint("/swagger/v1/swagger.json", "Ggl.Slst.Api");
+// });
 
 app.Run();

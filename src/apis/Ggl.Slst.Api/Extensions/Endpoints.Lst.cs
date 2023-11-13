@@ -9,21 +9,27 @@ internal static partial class Endpoints
         {
             var res = await manager.ManageAsync(req, cancellationToken);
             return Results.Ok(res);
-        });
+        })
+            .WithName("Upsert Lst")
+            .WithOpenApi();
 
         @this.MapPost("/lst/delete", 
             async (DeleteLstReq req, IManager<DeleteLstReq, DeleteLstResp> manager, CancellationToken cancellationToken) =>
         {
             var res = await manager.ManageAsync(req, cancellationToken);
             return Results.Ok(res);
-        });
+        })
+            .WithName("Delete Lst")
+            .WithOpenApi();
 
         @this.MapPost("/lst/read", 
             async (ReadLstReq req, IManager<ReadLstReq, ReadLstResp> manager, CancellationToken cancellationToken) =>
         {
             var res = await manager.ManageAsync(req, cancellationToken);
             return Results.Ok(res);
-        });
+        })
+            .WithName("Read Lst")
+            .WithOpenApi();
 
         return @this;
     }
