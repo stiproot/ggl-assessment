@@ -7,6 +7,10 @@
     <ProjectReference Include="..\Ggl.Slst.Mapping\Ggl.Slst.Mapping.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="6.5.0" />
+  </ItemGroup>
+
   <PropertyGroup>
     <TargetFramework>net7.0</TargetFramework>
     <Nullable>enable</Nullable>

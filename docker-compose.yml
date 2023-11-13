@@ -11,6 +11,17 @@ services:
       - POSTGRES_PASSWORD password
       - POSTGRES_DB slst
 
+  slst-store:
+    networks:
+      - slst
+    build: ./src/store
+    ports:
+      - 9000:9000
+      - 9001:9001
+    environment:
+      - MINIO_ROOT_USER minioadmin
+      - MINIO_ROOT_PASSWORD minioadmin
+
   slst-api:
     networks:
       - slst

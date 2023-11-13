@@ -5,6 +5,7 @@ using Ggl.Slst.FileStore.Extensions;
 using Ggl.Slst.Api.Mappings;
 using AutoMapper;
 using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.OpenApi.Models;
 
 namespace Ggl.Slst.Api.Extensions;
 
@@ -32,6 +33,12 @@ public static class ServiceCollectionExtensions
             config.AddProfile<ModelProfile>();
             config.AddProfile<OAuthProfile>();
         }).CreateMapper());
+
+        @this.AddEndpointsApiExplorer();
+        @this.AddSwaggerGen(c =>
+        {
+            c.SwaggerDoc("v1", new OpenApiInfo { Title = "Ggl.Slst.Api", Version = "v1" });
+        });
 
         return @this;
     }
