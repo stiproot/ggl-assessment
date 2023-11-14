@@ -19,8 +19,6 @@ public class LstTests : BaseTests
         await this._WriteDbResourceAccess.ExecuteAsync(upsertCmd, cancellationToken);
         var readResult = await this._ReadDbResourceAccess.QueryAsync<GetLstDbQry, GetLstDbQryResult>(readQry);
 
-        Console.WriteLine(JsonSerializer.Serialize(readResult));
-
         // ASSERT
         Assert.Single(readResult);
         Assert.NotNull(readResult.FirstOrDefault(r => r.Name.Equals(lstName)));

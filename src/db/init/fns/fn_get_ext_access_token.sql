@@ -11,10 +11,11 @@ CREATE FUNCTION fn_get_ext_access_token
 RETURNS TABLE
 (
     Id bigint,
+    CreationTimestampUtc TIMESTAMP,
     UsrId bigint,
     Token varchar(500),
     RefreshToken varchar(500),
-    Inactive boolean, 
+    Inactive boolean,
     ExpirationTimestampUtc TIMESTAMP
 )
 AS $$
@@ -30,8 +31,13 @@ BEGIN
         t.inactive AS Inactive,
         t.expiration_timestamp_utc AS ExpirationTimestampUtc
     FROM tb_ext_access_token AS t
-    WHERE 
-        t.id = p_id and t.usr_id = p_usr_id;
+    WHERE
+        (
+            (p_id <= 0) OR
+            (p_id > 0 AND t.id = p_id)
+        ) AND
+        t.usr_id = p_usr_id AND
+        t.inactive = FALSE;
 
 END;
 $$ LANGUAGE plpgsql;

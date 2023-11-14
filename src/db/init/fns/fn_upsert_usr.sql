@@ -3,7 +3,7 @@ create or replace function fn_upsert_usr(
     p_id bigint,
     p_usr_id bigint,
     p_name varchar(50),
-    p_surname varchar(50), 
+    p_surname varchar(50),
     p_email varchar(50)
 )
 returns bigint

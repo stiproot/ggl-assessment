@@ -14,14 +14,12 @@ public class UsrTests : BaseTests
         var name = Guid.NewGuid().ToString();
         var surname = Guid.NewGuid().ToString();
         var email = $"{Guid.NewGuid()}@gmail.com";
-        var upsertCmd = new UpsertUsrDbCmd { Name = name, Surname = surname, Email = email};
+        var upsertCmd = new UpsertUsrDbCmd { Name = name, Surname = surname, Email = email };
         var readQry = new GetUsrDbQry { QueryString = email };
 
         // ACT
         await this._WriteDbResourceAccess.ExecuteAsync(upsertCmd, cancellationToken);
         var readResult = await this._ReadDbResourceAccess.QueryAsync<GetUsrDbQry, GetUsrDbQryResult>(readQry);
-
-        Console.WriteLine(JsonSerializer.Serialize(readResult));
 
         // ASSERT
         Assert.Single(readResult);
